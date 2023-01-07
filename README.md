@@ -1,24 +1,31 @@
-# README
+# 今日のごはん
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+その日の気分や冷蔵庫の中にあるものから料理を提示したり、よく利用する店舗を登録できます。
 
-Things you may want to cover:
 
-* Ruby version
+### テーマを選んだ理由
+毎日作っていると、考えるのが面倒で同じようなものになってしまったり、買い忘れてしまったりすることがあります。そこで、その日の気分や食材を入力することで料理を提示してくれるサイトがあったら便利だなと思い、このテーマにしました。また、スーパーのチラシが投函されないので、店舗の登録をして一括で管理できたら便利だと思い、機能の１つに加えました。
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+一人暮らしの方、主婦(主夫)の方、忙しい方、面倒くさがりな方
 
-* Database creation
 
-* Database initialization
+### 主な利用シーン
+料理のレシピ検索、買い物前の各店舗お買い得品確認
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書:
+<...>
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
+## 使用素材
+- 楽天API  https://webservice.rakuten.co.jp/documentation/recipe-category-list
