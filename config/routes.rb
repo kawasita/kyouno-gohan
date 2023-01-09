@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    resources :recipes, only: [:index]
   end
 
   # 管理者
