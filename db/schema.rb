@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 2023_01_07_134641) do
 
   create_table "myshops", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "shop_url", null: false
+    t.text "shop_url", null: false
     t.string "shop_name", null: false
+    t.text "shop_memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

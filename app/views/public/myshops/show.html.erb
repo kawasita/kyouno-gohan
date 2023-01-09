@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12">
+      <h1>My店舗 "<%= current_user.shop_name %>"情報</h1>
+        <%= form_with model: @myshop do |f|%>
+          <table class="table table-bordered">
+            <tr>
+              <td style="width: 20%" >My店舗名</td>
+              <td style="width: 20%"><%= f.text_field :shop_name, class: "form-control" %></td>
+              <td style="width: 20%"></td>
+              <td style="width: 20%"></td>
+            </tr>
+            <tr>
+              <td>ホームページURL</td>
+              <td colspan="2"><%= f.text_area :shop_url, class: "form-control" %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>メモ</td>
+              <td colspan="2"><%= f.text_area :shop_memo, class: "form-control" %></td>
+              <td></td>
+            </tr>
+          </table>
+          <%= link_to "編集", edit_myshop_path(myshop.id), class: "btn btn-success" %>
+        <% end %>
+        <%= link_to '戻る', myshops_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

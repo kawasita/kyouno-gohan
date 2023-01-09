@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :recipes, only: [:index]
+    resources :myshops
   end
 
   # 管理者
