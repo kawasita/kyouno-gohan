@@ -1,0 +1,14 @@
+<table>
+  <caption>気になる・お気に入りレシピ一覧</caption>
+  <% @bookmarks.each do |bookmark| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to recipe_path(bookmark.recipe) do %>
+            <%= bookmark.recipe.recipi_name %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

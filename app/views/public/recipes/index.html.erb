@@ -1,2 +1,12 @@
 <%= @recipes.each do |recipe| %>
+<tbody>
+  <tr>
+    <td><%= recipe %></td>
+    <td><%= link_to "レシピ詳細", recipe_path(recipe.id) %></td>
+    <td id="bookmark_button_<%= recipe.id %>" >
+      <%= render "public/bookmarks/bookmark", recipe: recipe %>
+    </td>
+  </tr>
+</tbody>
 <% end %>
+<%#= @recipes.inspect %>

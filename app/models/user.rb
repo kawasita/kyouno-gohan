@@ -7,7 +7,31 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :recipe_comments, dependent: :destroy
   has_many :myshops, dependent: :destroy
+  has_many :bookmarks_recipes, through: :bookmarks, source: :recipe
   
   validates :name, presence: true
-  validates :is_deleted, presence: true
+  
+  def own?(object)
+    id == object.user_id
+  end
+
+  def bookmark(recipe)
+    bookmarks_recipes << recipe
+  end
+
+  def unbookmark(recipe)
+    bookmarks_recipes.delete(recipe)
+  end
+
+  def bookmark?(recipe)
+    bookmarks_recipes.include?(recipe)
+    # Bookmark.where(user_id: id, board_id: board.id).exists?と同じ
+  end
+  
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
 end

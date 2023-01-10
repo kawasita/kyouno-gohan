@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h2>レシピ詳細</h2>
+        <table class='table'>
+          <tr>
+            <td><%= @recipe.recipe_name %></td>
+            <td id="bookmark_button_<%= @recipe.id %>" >
+              <%= render "bookmarks/bookmark", recipe: @recipe %>
+            </td>
+          </tr>
+        </table>
+      <div class="recipe-comments-index">
+        <%= render "recipe_comments/index", recipe: @recipe %>
+      </div>
+      <%= render "recipe_comments/form", recipe: @recipe, recipe_comment: @recipe_comment %>
+    </div>
+  </div>
+</div>
