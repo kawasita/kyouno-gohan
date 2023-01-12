@@ -6,8 +6,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def show
-    Recipe.find_or_create_by(recipe_id: params[:id])
-    # @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
     @recipe_comment = RecipeComment.new
   end
 

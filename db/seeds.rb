@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "csv"
+
+CSV.foreach('db/csv/rakuten.csv') do |row|
+  pp Category.find_or_create_by(
+    name: row[0],
+    category_id: row[1],
+  )
+end

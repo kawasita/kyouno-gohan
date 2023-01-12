@@ -1,19 +1,60 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-8 offset-md-1'>
-      <h2>レシピ詳細</h2>
-        <table class='table'>
-          <tr>
-            <td><%= @recipe.recipe_name %></td>
-            <td id="bookmark_button_<%= @recipe.id %>" >
-              <%= render "bookmarks/bookmark", recipe: @recipe %>
-            </td>
-          </tr>
-        </table>
-      <div class="recipe-comments-index">
-        <%= render "recipe_comments/index", recipe: @recipe %>
+<!--<div class='container'>-->
+<!--  <div class='row'>-->
+<!--    <div class='col-md-8 offset-md-1'>-->
+<!--      <h2>レシピ詳細</h2>-->
+<!--        <table class='table'>-->
+<!--          <tr>-->
+<!--            <td><%#= @recipe.recipe_name %></td>-->
+<!--            <td id="bookmark_button_<%#= @recipe.id %>" >-->
+<!--              <%#= render "bookmarks/bookmark", recipe: @recipe %>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </table>-->
+<!--      <div class="recipe-comments-index">-->
+<!--        <%#= render "recipe_comments/index", recipe: @recipe %>-->
+<!--      </div>-->
+<!--      <%#= render "recipe_comments/form", recipe: @recipe, recipe_comment: @recipe_comment %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="container">
+  <h2><%= @recipe.recipe_title %></h2>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @recipe.food_image_url, class: 'img-fluid' %>
+    </div>
+    <div class="col-md-5">
+      <div>
+        <%= simple_format(@recipe.recipe_description) %>
       </div>
-      <%= render "recipe_comments/form", recipe: @recipe, recipe_comment: @recipe_comment %>
+      <div>
+        <%= @recipe.recipe_indication %>
+      </div>
+      <div>
+        <%= link_to '作り方の詳細', @recipe.recipe_url, target: :_blank, rel: "noopener noreferrer" %>
+      </div>
     </div>
   </div>
+
+  <h3>みんなのコメント</h3>
+  <%= form_with model: @recipe_comment, url: recipe_recipe_comments_path(@recipe), method: :post do |f| %>
+    <div class="form-group">
+      <%= f.text_area :comment, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  <hr>
+  <% @recipe.recipe_comments.each do |recipe_comment| %>
+    <div>
+      <small><%= recipe_comment.user.name %></small>
+      <%= simple_format(recipe_comment.comment) %>
+      <div class="text-right">
+        <small><%= recipe_comment.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></small>
+      </div>
+    </div>
+  <% end %>
 </div>
+
