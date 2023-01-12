@@ -1,10 +1,6 @@
 class Public::SearchesController < ApplicationController
 
   def search
-    # if params[:keyword]
-    #   @recipes = RakutenWebService::Recipe.search(keyword: params[:keyword])
-    # end
-
     unless params[:keyword].blank?
       categories = Category.where('name LIKE ?', "%#{params[:keyword]}%").pluck(:category_id)
 

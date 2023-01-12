@@ -70,7 +70,7 @@
               <%= random_comment_recipe.recipe_comments.last.comment %>
             </div>
             <div class="text-right">
-              <small><%= random_comment_recipe.recipe_comments.last.user.name %></small><br>
+              <small><%= random_comment_recipe.recipe_comments.last.user.nickname %></small><br>
               <small><%= random_comment_recipe.recipe_comments.last.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></small>
             </div>
           </div>
