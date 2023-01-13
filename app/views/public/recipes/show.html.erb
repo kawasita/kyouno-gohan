@@ -49,10 +49,10 @@
   <hr>
   <% @recipe.recipe_comments.each do |recipe_comment| %>
     <div>
-      <small><%= recipe_comment.user.nickname %></small>
+      <small><%= recipe_comment.user.name %></small>
       <%= simple_format(recipe_comment.comment) %>
       <div class="text-right">
-        <small><%= recipe_comment.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></small>
+        <small><%= recipe_comment.created_at.strftime("%Y年%M月%d日 %H時%M分") %></small>
       </div>
     </div>
   <% end %>

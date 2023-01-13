@@ -12,17 +12,17 @@ module Rakuten
         categoryId: category_id,
         format: 'json'
       }
-      uri.query = URI.encode_www_form(params) # paramsを付与したURLを生成する
+      uri.query = URI.encode_www_form(params) # paramsを付与したURLを生成
 
-      response = Net::HTTP.get_response(uri) # データを取得する
+      response = Net::HTTP.get_response(uri) # データを取得
 
-      response_body = JSON.parse(response.body) # 取得したJSONをパースする
+      response_body = JSON.parse(response.body) # 取得したJSONをパース
 
       if response_body['result'].nil?
         # 例外処理
         raise response_body['error_description']
       else
-        # 返ってきたレシピデータをデータベースに保存する
+        # 返ってきたレシピデータをデータベースに保存
         response_body['result'].each do |result|
           Recipe.find_or_create_by(recipe_id: result['recipeId']) do |recipe|
             recipe.recipe_title = result['recipeTitle']
