@@ -13,6 +13,7 @@ class Public::MyshopsController < ApplicationController
   end
 
   def show
+    @myshop = Myshop.find(params[:id])
   end
 
 
@@ -38,7 +39,7 @@ class Public::MyshopsController < ApplicationController
   private
 
   def myshop_params
-    params.require(:myshop).permit(:shop_name, :shop_url)
+    params.require(:myshop).permit(:shop_name, :shop_url, :shop_memo)
   end
 
 end

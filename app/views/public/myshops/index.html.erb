@@ -1,6 +1,6 @@
 <div class="containar">
   <div class="row">
-    <div class="col-lg-9 mt-5">
+    <div class="col-md-8 mx-auto">
     <h2>My店舗登録 / 一覧</h2><br>
     <%= form_with model: @myshop, method: :post  do |f|%>
 
@@ -31,13 +31,17 @@
           <tr class="table-secondary">
             <th>My店舗名</th>
             <th>ホームページURL</th>
-            <th></th>
+            <th>メモ</th>
           </tr>
           <% @myshops.each do |myshop| %>
           <tr>
             <td><%= myshop.shop_name %></td>
-            <td><%= myshop.shop_url %></td>
-            <td>My店舗メモは詳細ページで表示されます</td>
+            <td><%= link_to 'ホームページへ', myshop.shop_url, target: :_blank, rel: "noopener noreferrer" %></td>
+            <% if myshop.shop_memo.blank? %>
+              <td>メモする時は詳細ページへ！</td>
+            <% else %>
+              <td><%= myshop.shop_memo.truncate(20) %></td>
+            <% end %>
             <td>
               <%= link_to "詳細ページ", myshop_path(myshop.id), class: "btn btn-success" %>
             </td>
