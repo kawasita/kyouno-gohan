@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-10 mx-auto">
       <h1>My店舗 "<%= @myshop.shop_name %>"情報</h1>
         <%= form_with model: @myshop do |f|%>
 　　　　<table class="table table-bordered">
@@ -13,7 +13,7 @@
             <tr>
               <td><%= @myshop.shop_name %></td>
               <td><%= link_to 'ホームページへ', @myshop.shop_url, target: :_blank, rel: "noopener noreferrer" %></td>
-              <td><%= @myshop.shop_memo %></td>
+              <td><%= simple_format(@myshop.shop_memo) %></td>
             </tr>
           </thead>
         </table>

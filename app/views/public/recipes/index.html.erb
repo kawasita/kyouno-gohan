@@ -13,12 +13,14 @@
 <%#= @categories.each do |category| %>
   <%#= category.name %>
 <%# end %>
-今日のランキング<i class="fal fa-crown"></i>
+
 <div class="container">
   <div class="row">
+    <div class="col-md-12 text-center mb-3 mt-3">
+      <h3>今日のランキング<i class="fal fa-crown"></i></h3>
+    </div>
     <% @recipes.each do |recipe| %>
       <div class="col-md-3">
-        <%#= recipe.inspect %>
         <div class="card">
           <%= image_tag recipe['foodImageUrl'], class: 'card-img-top recipe-img' %>
           <div class="card-body">
@@ -34,10 +36,6 @@
               </div>
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     <% end %>
