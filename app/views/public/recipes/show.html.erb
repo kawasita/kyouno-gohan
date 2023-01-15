@@ -32,7 +32,10 @@
         <%= @recipe.recipe_indication %>
       </div>
       <div>
-        <%= link_to '作り方の詳細', @recipe.recipe_url, target: :_blank, rel: "noopener noreferrer" %>
+        <%= link_to '作り方はこちら', @recipe.recipe_url, target: :_blank, rel: "noopener noreferrer" %>
+      </div>
+      <div id="bookmark_button_<%= @recipe.id %>">
+        <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>
     </div>
   </div>

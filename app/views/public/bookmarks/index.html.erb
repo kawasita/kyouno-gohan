@@ -1,14 +1,26 @@
-<table>
-  <caption>気になる・お気に入りレシピ一覧</caption>
-  <% @bookmarks.each do |bookmark| %>
-    <tbody>
-      <tr>
-        <td>
-          <%= link_to recipe_path(bookmark.recipe) do %>
-            <%= bookmark.recipe.recipi_name %>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+      <div class="col-md-12 mb-3 mt-3">
+        <h4>気になる・お気に入りレシピ一覧</h4>
+      </div>
+      
+      <% @bookmarks.each do |bookmark| %>
+        <tbody class="col-md-10 mx-auto">
+          <tr>
+            <td>
+              <%= link_to recipe_path(bookmark.recipe) do %>
+                <%= bookmark.recipe.recipe_title %>
+              <% end %>
+            </td>
+            <td id="bookmark_button_<%= bookmark.recipe.id %>">
+              <%= render "public/bookmarks/bookmark", recipe: bookmark.recipe %>
+            </td>
+            <td><%= simple_format(bookmark.recipe.recipe_description) %></td>
+            <td><%= bookmark.recipe.recipe_indication %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
