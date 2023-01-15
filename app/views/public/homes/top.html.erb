@@ -1,38 +1,10 @@
 <div class="container">
-  <div class="row">
-    <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block" %>
-  </div>
-  <div class="row">
-    <%= link_to 'ログイン', new_user_session_path ,class: "btn btn-secondary btn-sm btn-block" %>
-  </div>
-  <div class="row">
-    <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block", method: :post %>
-  </div>
-  <div class="row">
-    <%= link_to 'レシピのindex', recipes_path, class: "btn btn-secondary btn-sm btn-block" %>
-  </div>
 
+  <%= render "public/searches/search-form" %>
 
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <%= form_tag(search_path, method: :get) do %>
-        <%= label_tag :keyword, '今日何にしよう？' %>
-
-        <div class="form-group">
-          <%# 検索ワードを引く次ぐためにparams[:keyword] %>
-          <%= text_field_tag :keyword, params[:keyword], class: 'form-control' %>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <%= submit_tag '検索', class: 'btn btn-outline-secondary btn-block' %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <div class="col-md-12 text-center mb-3 mt-3">
+    <h2>ランダムメニューBox</h2>
   </div>
-
-  <h2>ランダムメニューBox</h2>
   <div class="row">
     <% @random_recipes.each do |random_recipe| %>
       <div class="col-md-3">
@@ -56,7 +28,9 @@
     <% end %>
   </div>
 
-  <h2>新着コメントBox</h2>
+  <div class="col-md-12 text-center mb-3 mt-3">
+    <h2>新着コメントBox</h2>
+  </div>
   <div class="row">
     <% @random_comment_recipes.each do |random_comment_recipe| %>
       <div class="col-md-3">

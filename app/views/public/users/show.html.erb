@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    ブックマーク一覧
+    <%= link_to 'ブックマーク一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block" %>
     <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block" %>
-    今日のごはんはなんだろな検索
-    今日のランキング
+    <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block" %>
+    <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block" %>
   </div>
 </div>

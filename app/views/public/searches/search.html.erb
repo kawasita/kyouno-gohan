@@ -1,24 +1,7 @@
 <div class="container">
   <h2>今日何にしよう？</h2>
 
-  <div class="row mb-4">
-    <div class="col-md-6 mx-auto">
-      <%= form_tag(search_path, method: :get) do %>
-        <%= label_tag :keyword, '今日何にしよう？' %>
-
-        <div class="form-group">
-          <%# 検索ワードを引く次ぐためにparams[:keyword] %>
-          <%= text_field_tag :keyword, params[:keyword], class: 'form-control' %>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <%= submit_tag '検索', class: 'btn btn-outline-secondary btn-block' %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= render "public/searches/search-form" %>
 
   <div class="row">
     <% @results.each do |result| %>
@@ -27,7 +10,11 @@
           <%= image_tag result.food_image_url, class: 'card-img-top recipe-img' %>
           <div class="card-body">
             <h5 class="card-title">
-            <%= result.recipe_title.truncate(10) %>
+            <%# if result.recipe_title.persisted? %>
+              <%#= link_to result.recipe['recipeTitle'].truncate(10), recipe_path(recipe['recipeId']) %>
+            <%# else %>
+              <%= result.recipe_title.truncate(10) %>
+            <%# end %>
             </h5>
             <div class="card-text">
               <div>

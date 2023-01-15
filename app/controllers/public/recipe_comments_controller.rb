@@ -1,9 +1,11 @@
 class Public::RecipeCommentsController < ApplicationController
 
   def create
-    @comment = RecipeComment.new(recipe_comment_params)
+    recipe = Recipe.find(params[:recipe_id])
+    @comment = current_user.recipe_comments.new(recipe_comment_params)
+    @comment.recipe_id = recipe.id
     @comment.save
-    redirect_to recipe_path(params[:recipe_id])
+    # redirect_to recipe_path(params[:recipe_id])
   end
 
   def destroy

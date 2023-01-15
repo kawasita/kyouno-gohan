@@ -1,2 +1,2 @@
 $('.comment-textarea').val("")
-$('.recipe-comments-index').html("<%= j(render 'recipe_comments/index', recipe: @comment.recipe) %>")
+$('.recipe-comments-form').html("<%= j(render 'public/recipe_comments/form', recipe: @comment.recipe) %>")
