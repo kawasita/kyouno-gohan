@@ -1,7 +1,7 @@
 <div class="row mb-4">
   <div class="col-md-6 mx-auto">
-    <%= form_with url: search_path, method: :get do |f| %>
-      <%= f.label :keyword, '今日何にしよう？' %>
+    <%= form_with url: search_bookmark_path, method: :get do |f| %>
+      <%= f.label :keyword, 'お気に入りから検索する？' %>
 
       <div class="form-group">
         <%# 検索ワードを引く次ぐためにparams[:keyword] %>

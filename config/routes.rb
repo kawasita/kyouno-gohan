@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     root to: 'homes#about'
     get 'top' => 'homes#top'
     get "search" => "searches#search"
+    get "search_bookmark" => 'searches#search_bookmark'
     resources :myshops
     resources :users, only: [:show] do
       collection do

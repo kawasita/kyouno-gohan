@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-3 mt-3">
+      <h4>気になる・お気に入りレシピ検索結果</h4>
+    </div>
+    <table class="table table-bordered">
+
+      <div class="col-md-12 mb-3 mt-3">
+        <%= render "public/searches/search_bookmark-form" %>
+      </div>
+      <% @results.each do |result| %>
+        <tbody class="col-md-10 mx-auto">
+          <tr>
+            <td>
+              <%= link_to recipe_path(result) do %>
+                <%= result.recipe_title %>
+              <% end %>
+            </td>
+            <td id="bookmark_button_<%= result.id %>">
+              <%= render "public/bookmarks/bookmark", recipe: result %>
+            </td>
+            <td><%= simple_format(result.recipe_description) %></td>
+            <td><%= result.recipe_indication %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      <div class="text-right">
+        <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
+      </div>
+    </table>
+  </div>
+</div>

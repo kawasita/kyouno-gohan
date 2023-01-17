@@ -1,25 +1,37 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12 mb-3 mt-3">
+      <h4>気になる・お気に入りレシピ一覧</h4>
+    </div>
     <table class="table table-bordered">
-      <div class="col-md-12 mb-3 mt-3">
-        <h4>気になる・お気に入りレシピ一覧</h4>
-      </div>
       
-      <% @bookmarks.each do |bookmark| %>
-        <tbody class="col-md-10 mx-auto">
-          <tr>
-            <td>
-              <%= link_to recipe_path(bookmark.recipe) do %>
-                <%= bookmark.recipe.recipe_title %>
-              <% end %>
-            </td>
-            <td id="bookmark_button_<%= bookmark.recipe.id %>">
-              <%= render "public/bookmarks/bookmark", recipe: bookmark.recipe %>
-            </td>
-            <td><%= simple_format(bookmark.recipe.recipe_description) %></td>
-            <td><%= bookmark.recipe.recipe_indication %></td>
-          </tr>
-        </tbody>
+      <% if @bookmarks.blank? %>
+        <div class="col-md-12 mb-3 mt-3">
+          <%= render "public/searches/search-form" %>
+        </div>
+      <% else %>
+        <div class="col-md-12 mb-3 mt-3">
+          <%= render "public/searches/search_bookmark-form" %>
+        </div>
+        <% @bookmarks.each do |bookmark| %>
+          <tbody class="col-md-10 mx-auto">
+            <tr>
+              <td>
+                <%= link_to recipe_path(bookmark.recipe) do %>
+                  <%= bookmark.recipe.recipe_title.truncate(15) %>
+                <% end %>
+              </td>
+              <td id="bookmark_button_<%= bookmark.recipe.id %>">
+                <%= render "public/bookmarks/bookmark", recipe: bookmark.recipe %>
+              </td>
+              <td><%= simple_format(bookmark.recipe.recipe_description) %></td>
+              <td><%= bookmark.recipe.recipe_indication.truncate(15) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+          <div class="text-right">
+            <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
+          </div>
       <% end %>
     </table>
   </div>
