@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2023_01_17_005753) do
     t.string "recipe_cost", null: false
     t.string "food_image_url", null: false
     t.string "recipe_url", null: false
+    t.float "light_rate"
+    t.float "heavy_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -8,6 +8,8 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.string :recipe_cost, null: false # コスト
       t.string :food_image_url, null: false # 画像
       t.string :recipe_url, null: false # URL
+      t.float :light_rate # あっさり度合い
+      t.float :heavy_rate # こってり度合い
       t.timestamps
     end
   end
