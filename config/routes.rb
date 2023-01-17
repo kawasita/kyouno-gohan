@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         patch 'out'
       end
     end
-    resources :recipes, only: [:index, :show] do
+    resources :recipes, only: [:show] do
       resources :recipe_comments, only: [:create, :destroy]
       resource :bookmarks, only: [:create, :destroy]
     end
@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-
+    resources :users, only: [:show,:edit,:update]
+    get 'top' => 'homes#top'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
