@@ -10,6 +10,10 @@ module Kyounogohan
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    
+    # エラーの日本語化
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]
 
     # RakutenAPIを操作するライブラリの場所指定
     config.paths.add 'lib', eager_load: true
