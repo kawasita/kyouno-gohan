@@ -13,7 +13,7 @@
               <li><%= link_to '新規登録',new_user_registration_path,class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <% elsif user_signed_in? %>
-              <li><%= link_to '機能一覧',user_path(current_user.id),class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'マイページ',user_path(current_user.id),class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'My店舗一覧', myshops_path, class: "btn btn-outline-success" %></li>
               <li><%= link_to 'お気に入りレシピ一覧', bookmarks_path, class: "btn btn-outline-success" %></li>
               <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
