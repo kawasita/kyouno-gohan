@@ -4,7 +4,7 @@ class CreateBookmarks < ActiveRecord::Migration[6.1]
       
       t.integer :user_id, foreign_key: true,   null: false
       t.integer :recipe_id, foreign_key: true, null: false
-      t.string :recipe_title, null: false
+      #t.string :recipe_title, null: false
       t.timestamps
     end
   end

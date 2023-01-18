@@ -8,7 +8,7 @@
           <%= recipe_comment.user.nickname %>
           <%= recipe_comment.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %>
           <% if recipe_comment.user == current_user %>
-            <%= link_to "削除", recipe_recipe_comment_path(recipe_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+            <%= link_to "削除", recipe_recipe_comment_path(recipe, recipe_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
           <% end %>
         </small>
       </td>

@@ -1,6 +1,6 @@
 class Public::BookmarksController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end
@@ -31,8 +31,9 @@ class Public::BookmarksController < ApplicationController
   end
 
   def destroy
-    @recipe = current_user.bookmarks.find(params[:recipe_id]).recipe
-    current_user.unbookmark(@recipe)
+    current_user.bookmarks.find_by(recipe_id: params[:recipe_id]).destroy
+    @recipe = Recipe.find(params[:recipe_id])
+
     # if bookmark.present?
     #     bookmark.destroy
     #     redirect_to request.referer

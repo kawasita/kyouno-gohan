@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2023_01_17_005753) do
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "recipe_id", null: false
-    t.string "recipe_title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -3,7 +3,11 @@
     <div class="form-group">
       <%= f.text_area :comment, class: 'form-control comment-textarea' %>
     </div>
+    <!--あとから実装なのでいったん0-->
+    <%= f.hidden_field :light_rate, value: 0 %>
+    <%= f.hidden_field :heavy_rate, value: 0 %>
     <div class="form-group">
       <%= f.submit %>
     </div>
+    
   <% end %>

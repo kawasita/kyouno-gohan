@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def bookmark?(recipe)
     bookmarks_recipes.include?(recipe)
-    # Bookmark.where(user_id: id, board_id: board.id).exists?と同じ
+    # Bookmark.where(user_id: id, recipe_id: recipe.id).exists?と同じ
   end
   
   def self.guest
@@ -35,6 +35,7 @@ class User < ApplicationRecord
     end
   end
   
+  # 登録情報編集時にパスワードを変更できないように
   def update_without_user_password(params, *options)
     params.delete(:user_password)
 
