@@ -13,3 +13,11 @@ CSV.foreach('db/csv/rakuten.csv') do |row|
     category_id: row[1],
   )
 end
+
+# User.create!(
+#   name: ENV['ADMIN_NAME'],
+#   email: ENV['ADMIN_EMAIL'],
+#   password: ENV['ADMIN_PASSWORD'],
+#   password_confirmation: ENV['ADMIN_PASSWORD'],
+#   admin: true
+# )

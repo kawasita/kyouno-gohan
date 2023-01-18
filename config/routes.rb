@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get "search_bookmark" => 'searches#search_bookmark'
     resources :myshops
-    resources :users, only: [:show] do
+    resources :users, only: [:show, :index] do
       collection do
         get 'quit'
         patch 'out'
