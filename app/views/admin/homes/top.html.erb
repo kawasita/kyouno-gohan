@@ -1,34 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-10">
-      <div class="row my-4">
-        <div class="col-6">
-          <h3 class="p-3">新着コメント一覧</h3>
-        </div>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>レシピ</th>
-                <th>コメント</th>
-                <th>コメント日時</th>
-                <th>コメント者</th>
-              </tr>
-            </thead>
-            <tbody>
-            	<% @comment_recipes.each do |comment_recipe| %>
-              	<tr>
-                  <td>
-                    <%= link_to recipe_path(comment_recipe.id) do %>
-                      <%= comment_recipe.recipe_title %>
-                    <% end %>
-                  </td>
-                  <td><%= comment_recipe.comment %></td>
-                  <td><%= comment_recipe.recipe_comments.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></td>
-                  <td><%= comment_recipe.user.nickname %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+    <div class="col-12">
+      <div class="col-6">
+        <h3 class="p-3">新着コメント一覧</h3>
+      </div>
+      <div id="comment-delete">
+        <%= render 'admin/homes/comment_index', recipe_comment: @recipe_comment %>
       </div>
     </div>
   </div>

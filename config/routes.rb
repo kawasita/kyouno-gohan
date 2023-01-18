@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-  
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
   end
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:show,:edit,:update]
+    resources :homes, only: [:destroy]
     get 'top' => 'homes#top'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
