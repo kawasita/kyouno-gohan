@@ -1,7 +1,7 @@
 class Admin::HomesController < ApplicationController
   
   def top
-    @recipe_comment = RecipeComment.order(created_at: :desc)
+    @comments = RecipeComment.all
   end
   
   def destroy
