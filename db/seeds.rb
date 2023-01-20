@@ -14,10 +14,7 @@ CSV.foreach('db/csv/rakuten.csv') do |row|
   )
 end
 
-# Admin.create!(
-#   name: ENV['ADMIN_NAME'],
-#   email: ENV['ADMIN_EMAIL'],
-#   password: ENV['ADMIN_PASSWORD'],
-#   password_confirmation: ENV['ADMIN_PASSWORD'],
-#   admin: true
-# )
+Admin.create!(
+  email: ENV['ADMIN_EMAIL'],
+  password: ENV['ADMIN_PASSWORD']
+)
