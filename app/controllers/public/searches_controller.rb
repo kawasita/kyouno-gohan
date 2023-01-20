@@ -15,11 +15,4 @@ class Public::SearchesController < ApplicationController
     end
   end
 
-  def search_bookmark
-    unless params[:keyword].blank?
-      @results = Bookmark.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
-    else
-      @results = []
-    end
-  end
 end

@@ -5,6 +5,14 @@ class Public::BookmarksController < ApplicationController
     @bookmarks = Bookmark.where(user_id: current_user.id)
   end
   
+  def search_bookmark
+    unless params[:keyword].blank?
+      @results = Bookmark.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
+    else
+      @results = []
+    end
+  end
+  
   def create
     @recipe = Recipe.find(params[:recipe_id])
     current_user.bookmark(@recipe)

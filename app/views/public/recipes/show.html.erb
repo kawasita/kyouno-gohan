@@ -14,12 +14,12 @@
       <div>
         <%= link_to '作り方はこちら', @recipe.recipe_url, target: :_blank, rel: "noopener noreferrer" %>
       </div>
-      <!--<div>-->
-      <!--  <%#= render "light_rate", recipe: @recipe %>-->
-      <!--</div>-->
-      <!--<div>-->
-      <!--  <%#= render "heavy_rate", recipe: @recipe %>-->
-      <!--</div>-->
+      <div>
+        <%= render "light_rate_form", recipe: @recipe %>
+      </div>
+      <div>
+        <%= render "heavy_rate_form", recipe: @recipe %>
+      </div>
       <div id="bookmark_button_<%= @recipe.id %>">
         <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>

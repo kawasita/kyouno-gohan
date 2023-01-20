@@ -1,0 +1,34 @@
+<h5>あっさり度</h5>
+
+<div id="light_rate_<%= recipe.id %>"></div>
+<script>
+$(document).on('turbolinks:load', function() {
+    let light_raty_<%= recipe.id %> = document.querySelector('#light_rate_<%= recipe.id %>');
+    light_rate_<%= recipe.id %>.innerHTML = ""
+    let option_<%= recipe.id %> = {  
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: "<%= recipe.light_rate %>",
+        readOnly: true,
+      };
+    light_raty(light_raty_<%= recipe.id %> ,option_<%= recipe.id %>);
+});
+</script>
+
+<%#= form_with model: recipe do |f| %>
+<!--<div class="form-group row" id="light_rate">-->
+    <%#= f.label :light_rate,'あっさり度', class:'col-md-3 col-form-label' %>
+    <%#= f.hidden_field :light_rate, id: :review_star %>
+<!--　　　　</div>-->
+<!--  <script>-->
+<!--      $('#light_rate').empty();-->
+<!--  $('#light_rate').raty({-->
+<!--    size     : 36,-->
+<!--    starOff:  '<%#= asset_path('star-off.png') %>',-->
+<!--    starOn : '<%#= asset_path('star-on.png') %>',-->
+<!--      scoreName: 'recipe_comment[light_rate]',-->
+<!--    half: false,-->
+<!--  });-->
+<!--  </script>-->
+<!--<#% end %>-->

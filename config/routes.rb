@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     root to: 'homes#about'
     get 'top' => 'homes#top'
     get "search" => "searches#search"
-    get "search_bookmark" => 'searches#search_bookmark'
     resources :myshops
     resources :users, only: [:show, :index] do
       collection do
@@ -27,6 +26,7 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]
     end
     get 'bookmarks' => 'bookmarks#index'
+    get "search_bookmark" => 'bookmarks#search_bookmark'
   end
 
   # 管理者

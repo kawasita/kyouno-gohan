@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user_path(current_user.id)
     elsif admin_signed_in?
-      admin_orders_path
+      admin_top_path
     end
   end
 

@@ -3,24 +3,26 @@
     <div class="text-center p-4">
       <h2><b>ログイン</b></h2>
     </div>
+    <%= render "public/shared/error_messages", resource: resource %>
 
     <%= form_with model: @user, url: user_session_path do |f| %>
+    
       <div class="field">
         <%= f.label :"メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-12" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-12", placeholder: 'sample@example.com' %>
       </div>
     
-      <div class="field">
+      <div class="field mt-3">
         <%= f.label :"パスワード" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "col-12" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "col-12", placeholder: '○○○○○○' %>
       </div>
     
-      <div class="actions text-center p-3 pb-5">
-        <%= f.submit "ログイン", class: "btn btn-success col-4 mr-5" %>
+      <div class="actions text-center p-3 pb-5 mx-auto">
+        <%= f.submit "ログイン", class: "btn btn-success px-4" %>
       </div>
     <% end %>
     
-    <h3>会員登録がお済みでない方</h3>
+    <h4 class="col-12 px-4 mt-4">会員登録がお済みでない方</h4>
     <div class="text-center p-3">
       <h5><%= render "public/shared/links" %><i class="far fa-hand-point-left"></i></h5>
     </div>
