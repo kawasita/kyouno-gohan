@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 mb-3 mt-3">
-      <h4>気になる・お気に入りレシピ一覧</h4>
+      <h3 class="col-12 mt-4 border-bottom">気になる・お気に入りレシピ一覧</h3>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
       
       <% if @bookmarks.blank? %>
         <div class="col-md-12 mb-3 mt-3">
@@ -29,7 +29,7 @@
             </tr>
           </tbody>
         <% end %>
-          <div class="text-right">
+          <div class="text-right mb-2">
             <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
           </div>
       <% end %>

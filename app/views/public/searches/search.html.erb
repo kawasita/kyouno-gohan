@@ -1,31 +1,37 @@
 <div class="container">
-  <h2>今日何にしよう？</h2>
+  <h3 class="col-12 mt-4 border-bottom">今日何にしよう？</h3>
 
   <%= render "public/searches/search-form" %>
 
   <div class="row">
-    <% @results.each do |result| %>
-      <div class="col-md-4 mb-2">
-        <div class="card">
-          <%= image_tag result.food_image_url, class: 'card-img-top recipe-img' %>
-          <div class="card-body">
-            <h5 class="card-title">
-            <%# if result.recipe_title.persisted? %>
-              <%#= link_to result.recipe['recipeTitle'].truncate(10), recipe_path(recipe['recipeId']) %>
-            <%# else %>
-              <%= result.recipe_title.truncate(10) %>
-            <%# end %>
-            </h5>
-            <div class="card-text">
-              <div>
-                <%= result.recipe_description.truncate(15) %>
-              </div>
-              <div class="text-right">
-                <small><%= result.recipe_cost %></small>
+    <% unless @results.blank? %>
+      <% @results.each do |result| %>
+        <div class="col-md-4 mb-2">
+          <div class="card">
+            <%= image_tag result.food_image_url, class: 'card-img-top recipe-img' %>
+            <div class="card-body">
+              <h5 class="card-title">
+              <%# if result.recipe_title.persisted? %>
+                <%#= link_to result.recipe['recipeTitle'].truncate(10), recipe_path(recipe['recipeId']) %>
+              <%# else %>
+                <%= result.recipe_title.truncate(10) %>
+              <%# end %>
+              </h5>
+              <div class="card-text">
+                <div>
+                  <%= result.recipe_description.truncate(15) %>
+                </div>
+                <div class="text-right">
+                  <small><%= result.recipe_cost %></small>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      <% end %>
+    <% else %>
+      <div class="bg-warning text-center col-md-6 mx-auto">
+        <h4>検索スペースに食べたいもの入力してみてね</h4>
       </div>
     <% end %>
   </div>

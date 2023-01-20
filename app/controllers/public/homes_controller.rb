@@ -1,5 +1,6 @@
 class Public::HomesController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def top
     # SQLiteとMySQlでは、ランダムの取得が違うためSQLを生成
     rand_sql = Rails.env.development? ? 'RANDOM()' : 'RAND()'

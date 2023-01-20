@@ -1,4 +1,4 @@
-<h3>みんなのコメント</h3>
+<h3 class="col-12 mt-4 border-bottom">みんなのコメント</h3>
   <%= form_with model: [recipe, recipe_comment], local: false do |f| %>
     <div class="form-group">
       <%= f.text_area :comment, class: 'form-control comment-textarea' %>

@@ -1,23 +1,23 @@
 <div class='container'>
   <div class='row'>
     <div class="col-md-8 mx-auto">
-      <h1>My店舗編集</h1>
+      <h3 class="col-12 mt-4 border-bottom">My店舗編集</h3>
         <%= form_with model: @myshop do |f|%>
-          <table class="table table-bordered">
+          <table class="table table-border border-bottom border-right border-left">
             <tr>
               <td style="width: 20%" >My店舗名</td>
-              <td style="width: 20%"><%= f.text_field :shop_name, class: "form-control" %></td>
+              <td style="width: 20%"><%= f.text_field :shop_name, class: "form-control", placeholder: '○○スーパー' %></td>
               <td style="width: 20%"></td>
               <td style="width: 20%"></td>
             </tr>
             <tr>
               <td>ホームページURL</td>
-              <td colspan="2"><%= f.text_area :shop_url, class: "form-control" %></td>
+              <td colspan="2"><%= f.text_area :shop_url, class: "form-control", placeholder: 'http://www.tarounooisii...' %></td>
               <td></td>
             </tr>
             <tr>
               <td>メモ</td>
-              <td colspan="2"><%= f.text_area :shop_memo, class: "form-control" %></td>
+              <td colspan="2"><%= f.text_area :shop_memo, class: "form-control", placeholder: '月曜日は全品10%OFF' %></td>
               <td></td>
             </tr>
           </table>

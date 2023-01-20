@@ -13,6 +13,18 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <main>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <i class="fas fa-check-circle"></i><apan class="ml-2"><%= notice %></apan>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <i class="fas fa-bullhorn"></i><apan class="ml-2"><%= alert %></apan>
+        </div>
+      <% end %>
+    </main>
     <%= yield %>
   </body>
 </html>

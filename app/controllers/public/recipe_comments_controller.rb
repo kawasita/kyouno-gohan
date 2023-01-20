@@ -1,4 +1,6 @@
 class Public::RecipeCommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_normal_user, only: [:create, :destroy]
 
   def create
     @recipe = Recipe.find(params[:recipe_id])
@@ -11,6 +13,12 @@ class Public::RecipeCommentsController < ApplicationController
   def destroy
     @comment = RecipeComment.find(params[:id])
     @comment.destroy
+  end
+  
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to request.referer, alert: 'ゲストユーザーの方はこの機能をご利用できません'
+    end
   end
 
   private

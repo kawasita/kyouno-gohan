@@ -1,4 +1,6 @@
 class Public::MyshopsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_normal_user, only: [:create, :destroy, :show, :edit, :update]
 
   def index
     @myshop = Myshop.new
@@ -8,8 +10,11 @@ class Public::MyshopsController < ApplicationController
   def create
     myshop = Myshop.new(myshop_params)
     myshop.user_id = current_user.id
-    myshop.save
-    redirect_to myshops_path
+    if myshop.save
+      redirect_to myshops_path
+    else
+      render 'index', alert: '登録に失敗しました。お手数ですが再度お願いします。'
+    end
   end
 
   def show
@@ -24,7 +29,7 @@ class Public::MyshopsController < ApplicationController
   def update
     @myshop = Myshop.find(params[:id])
     if @myshop.update(myshop_params)
-      redirect_to myshops_path, notice: "You have updated successfully."
+      redirect_to myshops_path, notice: "情報更新完了です！"
     else
       render "edit"
     end
@@ -34,6 +39,12 @@ class Public::MyshopsController < ApplicationController
     @myshop = Myshop.find(params[:id])
     @myshop.destroy
     redirect_to myshops_path
+  end
+  
+  def ensure_normal_user
+    if current_user.email == 'guest@example.com'
+      redirect_to request.referer, alert: 'ゲストユーザーの方はこの機能をご利用できません'
+    end
   end
 
   private
