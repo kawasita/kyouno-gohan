@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><%= @recipe.recipe_title %></h2>
+  <h3 class="col-12 mt-4 mb-4 border-bottom"><%= @recipe.recipe_title %></h3>
   <div class="row">
     <div class="col-md-4">
       <%= image_tag @recipe.food_image_url, class: 'img-fluid' %>
@@ -11,17 +11,17 @@
       <div>
         <%= @recipe.recipe_indication %>
       </div>
-      <div>
-        <%= link_to '作り方はこちら', @recipe.recipe_url, target: :_blank, rel: "noopener noreferrer" %>
+      <div class="mt-2 mb-2">
+        <%= link_to '作り方はこちら', @recipe.recipe_url, target: :_blank, class: "btn btn-success", rel: "noopener noreferrer" %>
+      </div>
+      <div class="mt-2 mb-2" id="bookmark_button_<%= @recipe.id %>">
+        <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>
       <div>
         <%= render "light_rate_form", recipe: @recipe %>
       </div>
       <div>
         <%= render "heavy_rate_form", recipe: @recipe %>
-      </div>
-      <div id="bookmark_button_<%= @recipe.id %>">
-        <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>
     </div>
   </div>

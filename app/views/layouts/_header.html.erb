@@ -15,7 +15,8 @@
             <ul class="navbar-nav ml-auto">
             <!--ゲストユーザーの場合-->
             <% if user_signed_in? && current_user.name == "guestuser" %>
-              <li><%= link_to 'トップページ',user_path(current_user.id),class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'サイトについて',root_path,class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'マイページ',user_path(current_user.id),class: 'btn btn-outline-success' %></li>
               <li><%= link_to '今日のランダム', top_path, class: "btn btn-outline-success" %></li>
               <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <!--会員の場合-->
@@ -26,11 +27,11 @@
               <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <!--管理者の場合-->
             <% elsif admin_signed_in? %>
-              <li><%= link_to 'トップページ',admin_top_path, class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'マイページ',admin_top_path, class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <!--ログインしていない状態-->
             <% else %>
-              <li><%= link_to 'About',root_path,class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'サイトについて',root_path,class: 'btn btn-outline-success' %></li>
               <li><%= link_to '新規登録',new_user_registration_path,class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'ログイン',new_user_session_path ,class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-outline-success", method: :post %></li>

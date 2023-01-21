@@ -1,21 +1,25 @@
 <div class="container">
   <div class="row">
       <div class="col-lg-12 center-block">
-        <h2 class="text-center mt-5 mb-3"><i class="fas fa-question"></i>このサイトの使い方<i class="fas fa-question"></i></h2>
-        <h5 class="text-center">
+        <h2 class="text-center mt-5 mb-3 border-bottom"><i class="fas fa-question"></i>このサイトの使い方<i class="fas fa-question"></i></h2>
+        <h5 class="text-center", style="line-height: 30px">
           普段のごはん選び、何となく同じものになっていませんか？</br>
-          そんなあなたにおすすめします！</br>
           ここは、そんなあなたのごはんを決めちゃうサイト！</br>
-          日々このサイトで検索したりすると、</br>どんどん検索ヒットレシピ件数が増えていくという世にも不思議な育てるサイト</br>
+          このサイトで料理を検索すると、</br>
+          どんどん<span class="text-danger">閲覧できるレシピが増えていくという世にも不思議な育てるサイト</span></br>
           気に入った・気になるレシピを登録したり、コメントすることもできちゃいます</br>
-          また、店舗登録をして今日のお買い得品を一括管理しちゃいましょう！</br>
-          Let's 今日のごはん！</br></br>
+          また、スーパーなどの店舗登録をして今日のお買い得品を一括管理しちゃいましょう！</br></br>
+          <strong>Let's 今日のごはん！</strong></br></br>
           ＊初めて利用する場合は、仕様上ランダムボックスが使えません。まずは検索してみてね<i class="fas fa-search"></i>
         </h5>
-        <div class="text-center col-md-12 mb-3 mt-3">
-          <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2", method: :post %>
-          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
+        <div class="text-center d-grid gap-2 col-8 mx-auto">
+          <% if user_signed_in? %>
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled", method: :post %>
+          <% else %>
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled", method: :post %>
+          <% end %>
         </div>
 
       </div>

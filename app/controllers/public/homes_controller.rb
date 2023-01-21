@@ -1,5 +1,5 @@
 class Public::HomesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:top]
   
   def top
     # SQLiteとMySQlでは、ランダムの取得が違うためSQLを生成
