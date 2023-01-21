@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_deleted_user, only: [:create]
   
   # GET /resource/sign_in
   # def new
@@ -18,14 +19,15 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
   protected
   
   # 退会しているかを判断するメソッド
-  def user_is_deleted
+  def reject_deleted_user
     @user = User.find_by(email: params[:user][:email])
-    return if !@user
-    if @user.valid_password?(params[:user][:password])
-      redirect_to request.referer, alert: 'このアカウントは退会済みです'
+    if @user.valid_password?(params[:user][:password]) && @user.is_deleted == true
+      flash[:alert] = "退会済みのため再度登録をお願いします"
+      redirect_to new_user_registration_path
     end
   end
 
