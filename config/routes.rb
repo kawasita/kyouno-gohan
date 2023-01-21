@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :recipes, only: [:show] do
       resources :recipe_comments, only: [:create, :destroy]
       resource :bookmarks, only: [:create, :destroy]
+      resource :reviews, only: [:create]
     end
     get 'bookmarks' => 'bookmarks#index'
     get "search_bookmark" => 'bookmarks#search_bookmark'

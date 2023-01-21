@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row col-8 mx-auto">
     <div class="col-12 pl-5">
-      <h2 class="head-line title_h2 text-center mt-3"><b>マイページ</b></h2>
+      <h3 class="col-12 mt-4 border-bottom text-center">マイページ</h3>
       
       <!--ユーザーによってボタンの表示変更-->
       <% if user_signed_in? && current_user.name == "guestuser" %>
         <div class="text-center col-12 mt-5">
-          <b>会員登録情報</b><%= link_to "見てみる", edit_user_registration_path, class: "btn btn-success ml-2 disabled" %>
+          会員登録情報<%= link_to "見てみる", edit_user_registration_path, class: "btn btn-success ml-2 disabled" %>
         </div>
         <div class="text-center col-md-12 mb-3 p-2">
-          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block disabled" %>
-          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block disabled" %>
-          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block" %>
-          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block" %>
+          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block p-3 disabled" %>
+          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block p-3 disabled" %>
+          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
+          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
         </div>
         
       <% else %>
@@ -20,10 +20,10 @@
           <b>会員登録情報</b><%= link_to "見てみる", edit_user_registration_path, class: "btn btn-success ml-2" %>
         </div>
         <div class="text-center col-md-12 mb-3 p-2">
-          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block" %>
-          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block" %>
-          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block" %>
-          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block" %>
+          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block p-3 btn-stitch", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #668ad8;" %>
+          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
+          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
+          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
         </div>
       <% end %>
     </div>

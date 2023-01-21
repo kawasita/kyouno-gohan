@@ -13,18 +13,18 @@
           <tr>
             <td>
               <%= link_to recipe_path(result) do %>
-                <%= result.recipe_title %>
+                <%= result.recipe_title.truncate(15) %>
               <% end %>
             </td>
             <td id="bookmark_button_<%= result.id %>">
               <%= render "public/bookmarks/bookmark", recipe: result %>
             </td>
             <td><%= simple_format(result.recipe_description) %></td>
-            <td><%= result.recipe_indication %></td>
+            <td><%= result.recipe_indication.truncate(15) %></td>
           </tr>
         </tbody>
       <% end %>
-      <div class="text-right">
+      <div class="text-right mb-2">
         <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
       </div>
     </table>

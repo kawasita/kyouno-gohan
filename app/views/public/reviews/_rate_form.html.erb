@@ -1,0 +1,41 @@
+<div id="light_rate"></div>
+<div class="form-group" id="star">
+  <%= f.label :"あっさり度" %>
+  <%= f.hidden_field :light_rate, id: :review_star, class:'form-control' %>
+</div>
+  
+
+ <script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#light_rate');
+      raty_elem.innerHTML = ""
+      let option = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'recipe_comment[light_rate]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>
+    
+<div id="heavy_rate"></div>
+<div class="form-group" id="star">
+  <%= f.label :"こってり度" %>
+  <%= f.hidden_field :heavy_rate, id: :review_star, class:'form-control' %>
+</div>
+          
+
+ <script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#heavy_rate');
+      raty_elem.innerHTML = ""
+      let option = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'recipe_comment[heavy_rate]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>

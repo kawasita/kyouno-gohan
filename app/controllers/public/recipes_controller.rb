@@ -4,6 +4,7 @@ class Public::RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_comment = RecipeComment.new
+    @review = @recipe.reviews.find_by(user_id: current_user.id) || current_user.reviews.new
     # 新着コメントを上から5件取得
     # @recipe_comments_latest5 = @recipe_comments.first(5)
     # # 新着コメント3件を除く全コメントを取得 (5件以下の場合は空)

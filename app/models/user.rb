@@ -5,11 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :bookmarks, dependent: :destroy
+  has_many :recipes, through: :bookmarks # あくまでもレシピの検索をするので、ブックマークを通ってレシピを探してあげる
   has_many :recipe_comments, dependent: :destroy
   has_many :myshops, dependent: :destroy
   has_many :bookmarks_recipes, through: :bookmarks, source: :recipe
+  has_many :reviews, dependent: :destroy
   
   validates :name, presence: true
+  validates :name, length: { maximum: 9 }
+  validates :nickname, exclusion: { in: %w(管理人 管理者 スタッフ 運営) }
   
   def own?(object)
     id == object.user_id

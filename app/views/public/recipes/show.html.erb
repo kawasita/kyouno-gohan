@@ -17,12 +17,24 @@
       <div class="mt-2 mb-2" id="bookmark_button_<%= @recipe.id %>">
         <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>
-      <div>
-        <%= render "light_rate_form", recipe: @recipe %>
-      </div>
-      <div>
-        <%= render "heavy_rate_form", recipe: @recipe %>
-      </div>
+      
+      <%= form_with model: @review, url: recipe_reviews_path(@recipe), method: :post do |f| %>
+        <% if @review.id != nil %>
+          <div>
+            <%= render "public/reviews/rate", f: f, review: @review %>
+          </div>
+        <% else %>
+          <div>
+            <%= render "public/reviews/rate_form", f: f %>
+          </div>
+        <% end %>
+        <% if @review.id == nil %>
+          <div class="form-group">
+            <%= f.submit "登録", class: 'btn btn-success' %>
+          </div>
+        <% end %>
+      <% end %>
+    
     </div>
   </div>
   
@@ -33,5 +45,6 @@
   <div id="recipe-comments-index">
    <%= render 'public/recipe_comments/index', recipe: @recipe %>
   </div>
+
 </div>
 
