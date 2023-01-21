@@ -2,6 +2,7 @@
   <h3 class="col-12 mt-4 border-bottom">今日何にしよう？</h3>
 
   <%= render "public/searches/search-form" %>
+  <%= render 'layouts/loading' %>
 
   <div class="row">
     <% unless @results.blank? %>

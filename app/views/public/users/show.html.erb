@@ -6,24 +6,24 @@
       <!--ユーザーによってボタンの表示変更-->
       <% if user_signed_in? && current_user.name == "guestuser" %>
         <div class="text-center col-12 mt-5">
-          会員登録情報<%= link_to "見てみる", edit_user_registration_path, class: "btn btn-success ml-2 disabled" %>
+          会員登録情報<%= link_to "見てみる", edit_user_registration_path, class: "btn ml-2 btn-stitch disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #28a745; background: #28a745;" %>
         </div>
         <div class="text-center col-md-12 mb-3 p-2">
-          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block p-3 disabled" %>
-          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block p-3 disabled" %>
-          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
-          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
+          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-sm btn-block text-white mt-3 mb-3 p-3 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-sm btn-block text-white mb-3 p-3 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to '今日のごはん検索', search_path, class: "btn btn-sm btn-block text-white mb-3 p-3", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to '今日のランダム', top_path, class: "btn btn-sm btn-block text-white mb-3 p-3", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
         </div>
         
       <% else %>
         <div class="text-center col-12 mt-5">
-          <b>会員登録情報</b><%= link_to "見てみる", edit_user_registration_path, class: "btn btn-success ml-2" %>
+          <b>会員登録情報</b><%= link_to "見てみる", edit_user_registration_path, class: "btn ml-2 mb-2 text-white btn-stitch", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #28a745; background: #28a745;" %>
         </div>
-        <div class="text-center col-md-12 mb-3 p-2">
-          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-secondary btn-sm btn-block p-3 btn-stitch", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #668ad8;" %>
-          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
-          <%= link_to '今日のごはん検索', search_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
-          <%= link_to '今日のランダム', top_path, class: "btn btn-secondary btn-sm btn-block p-3" %>
+        <div class="text-center col-12 mb-3 p-2">
+          <%= link_to 'お気に入り一覧', bookmarks_path, class: "btn btn-sm btn-block text-white mt-3 mb-3 p-3 btn-stitch", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to 'My店舗一覧', myshops_path, class: "btn btn-sm btn-block text-white mb-3 p-3", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to '今日のごはん検索', search_path, class: "btn btn-sm btn-block text-white mb-3 p-3", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to '今日のランダム', top_path, class: "btn btn-sm btn-block text-white p-3", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
         </div>
       <% end %>
     </div>

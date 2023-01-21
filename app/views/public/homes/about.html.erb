@@ -13,11 +13,11 @@
         </h5>
         <div class="text-center d-grid gap-2 col-8 mx-auto">
           <% if user_signed_in? %>
-            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled", method: :post %>
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-sm btn-block text-white py-2 mt-2 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-sm btn-block text-white py-2 mt-2 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;", method: :post %>
           <% else %>
-            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2", method: :post %>
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-sm btn-block text-white py-2 mt-2", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-sm btn-block text-white py-2 mt-2", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;", method: :post %>
           <% end %>
         </div>
 

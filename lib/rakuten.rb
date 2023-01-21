@@ -17,7 +17,7 @@ module Rakuten
       response = Net::HTTP.get_response(uri) # データを取得
 
       response_body = JSON.parse(response.body) # 取得したJSONをパース
-
+      #byebug
       if response_body['result'].nil?
         # 例外処理
         raise response_body['error_description']
