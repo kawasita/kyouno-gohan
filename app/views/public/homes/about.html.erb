@@ -10,15 +10,15 @@
           気に入った・気になるレシピを登録したり、コメントすることもできちゃいます</br>
           また、スーパーなどの店舗登録をして今日のお買い得品を一括管理しちゃいましょう！</br></br>
           <strong>Let's 今日のごはん！</strong></br></br>
-          ＊初めて利用する場合は、仕様上ランダムボックスが使えません。まずは検索してみてね<i class="fas fa-search"></i>
+          ＊新規会員の方は、仕様上ランダムボックスが使えません。まずは検索してみてね<i class="fas fa-search"></i>
         </h5>
         <div class="text-center d-grid gap-2 col-8 mx-auto">
           <% if user_signed_in? %>
             <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled" %>
             <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled", method: :post %>
           <% else %>
-            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2 disabled", method: :post %>
+            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-secondary btn-sm btn-block py-2 mt-2" %>
+            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block py-2 mt-2", method: :post %>
           <% end %>
         </div>
 

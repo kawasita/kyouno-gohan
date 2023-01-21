@@ -16,10 +16,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     resources :myshops
     resources :users, only: [:show, :index] do
-      collection do
-        get 'quit'
         patch 'out'
-      end
     end
     resources :recipes, only: [:show] do
       resources :recipe_comments, only: [:create, :destroy]

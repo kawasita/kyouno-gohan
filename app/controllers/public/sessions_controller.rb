@@ -21,10 +21,11 @@ class Public::SessionsController < Devise::SessionsController
   protected
   
   # 退会しているかを判断するメソッド
-  def user_state
+  def user_is_deleted
     @user = User.find_by(email: params[:user][:email])
     return if !@user
     if @user.valid_password?(params[:user][:password])
+      redirect_to request.referer, alert: 'このアカウントは退会済みです'
     end
   end
 

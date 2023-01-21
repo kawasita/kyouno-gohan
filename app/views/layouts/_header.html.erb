@@ -27,7 +27,7 @@
               <li><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <!--管理者の場合-->
             <% elsif admin_signed_in? %>
-              <li><%= link_to 'マイページ',admin_top_path, class: 'btn btn-outline-success' %></li>
+              <li><%= link_to 'トップページ',admin_top_path, class: 'btn btn-outline-success' %></li>
               <li><%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
             <!--ログインしていない状態-->
             <% else %>
