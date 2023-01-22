@@ -13,6 +13,12 @@
         <div class="col-md-12 mb-3 mt-3">
           <%= render "public/bookmarks/search_bookmark-form" %>
         </div>
+        
+        <p>
+         <%= link_to 'あっさり順', bookmarks_path(light_rate: "true") %>
+         |<%= link_to 'こってり順', bookmarks_path(heavy_rate: "true") %>
+        </p>
+        
         <% @bookmarks.each do |bookmark| %>
           <tbody class="col-md-10 mx-auto">
             <tr>

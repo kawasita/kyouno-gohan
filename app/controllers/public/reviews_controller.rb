@@ -2,7 +2,17 @@ class Public::ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_normal_user, only: [:create]
 
-    
+  
+  def index
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe.reviews.find_by(user_id: current_user.id)
+    if params[:light_rate]
+      @reviews = Review.where(user: current_user).light_rate
+    else params[:heavy_rate]
+      @reviews = Review.where(user: current_user).heavy_rate
+    end
+  end
+  
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @review = current_user.reviews.new(review_params)

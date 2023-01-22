@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :recipe_comments, dependent: :destroy
   has_many :myshops, dependent: :destroy
   has_many :bookmarks_recipes, through: :bookmarks, source: :recipe
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   
   validates :name, presence: true
   validates :name, length: { maximum: 9 }

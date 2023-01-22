@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-3 mt-3">
+      <h3 class="col-12 mt-4 border-bottom">今日はあっさり？それともこってり？</h3>
+    </div>
+    <table class="table table-bordered table-hover">
+      
+      <% if @recipe.blank? %>
+        <div class="col-md-12 mb-3 mt-3">
+          <%= render "public/searches/search-form" %>
+        </div>
+      <% else %>
+        <p>
+         <%= link_to 'あっさり順', reviews_path(light_rate: "true") %>
+         |<%= link_to 'こってり順', reviews_path(heavy_rate: "true") %>
+        </p>
+        
+        <% @reviews.each do |review| %>
+          <tbody class="col-md-10 mx-auto">
+            <tr>
+              <td>
+                <%= link_to recipe_path(review.recipe) do %>
+                  <%= review.recipe.recipe_title.truncate(15) %>
+                <% end %>
+              </td>
+              <td><%= simple_format(review.recipe.recipe_description) %></td>
+              <td><%= review.recipe.recipe_indication.truncate(15) %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>

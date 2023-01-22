@@ -18,6 +18,10 @@
         <%= render "public/bookmarks/bookmark", recipe: @recipe %>
       </div>
       
+      <div class="mt-3 mb-3">
+        <small>＊あっさり度とこってり度を入力して、<br />あなただけのあっさりこってりページを作ろう！</small>
+      </div>
+      
       <%= form_with model: @review, url: recipe_reviews_path(@recipe), method: :post do |f| %>
         <% if @review.id != nil %>
           <div>

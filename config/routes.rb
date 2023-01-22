@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resource :reviews, only: [:create]
     end
     get 'bookmarks' => 'bookmarks#index'
+    get 'reviews' => 'reviews#index'
     get "search_bookmark" => 'bookmarks#search_bookmark'
   end
 
