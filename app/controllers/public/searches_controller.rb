@@ -9,8 +9,10 @@ class Public::SearchesController < ApplicationController
       categories.sample(5).each do |category|
         Rakuten.get_rakuten_recipes(category)
       end
-
+      
       @results = Recipe.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
+      results_array = Recipe.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
+      @results = Kaminari.paginate_array(results_array).page(params[:page]).per(9)
     else
       @results = []
     end

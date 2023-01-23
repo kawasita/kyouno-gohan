@@ -12,11 +12,7 @@
             <%= image_tag result.food_image_url, class: 'card-img-top recipe-img' %>
             <div class="card-body">
               <h5 class="card-title">
-              <%# if result.recipe_title.persisted? %>
-                <%#= link_to result.recipe['recipeTitle'].truncate(10), recipe_path(recipe['recipeId']) %>
-              <%# else %>
-                <%= result.recipe_title.truncate(10) %>
-              <%# end %>
+                <%= link_to result.recipe_title.truncate(10), recipe_path(result) %>
               </h5>
               <div class="card-text">
                 <div>
@@ -35,5 +31,8 @@
         <h4>検索スペースに食べたいものを入力してみてね</h4>
       </div>
     <% end %>
+  </div>
+  <div class="justify-content-center text-center">
+    <%= paginate @results %>
   </div>
 </div>
