@@ -1,15 +1,15 @@
     <h6 class="m-1">あっさり度</h6>
-      <div id="light_raty"></div>
+      <div class="light_raty<%= recipe.id %>"></div>
       <script>
         $(document).on('turbolinks:load', function() {
-        let raty_elem = document.querySelector('#light_raty');
+        let raty_elem = document.querySelector('.light_raty<%= recipe.id %>');
         raty_elem.innerHTML = ""
         let option = {  
             starOn: "<%= asset_path('star-on.png') %>",
             starOff: "<%= asset_path('star-off.png') %>",
             starHalf: "<%= asset_path('star-half.png') %>",
             scoreName: 'recipe[light_rate]',
-            score: <%= review.light_rate %>,
+            score: <%= review ? review.light_rate : 0 %>,
             readOnly: true,
           };
         raty(raty_elem,option);
@@ -17,17 +17,17 @@
  </script>
  
     <h6 class="m-1">こってり度</h6>
-      <div id="heavy_raty"></div>
+      <div class="heavy_raty<%= recipe.id %>"></div>
       <script>
-        $(document).on('turbolinks:load', function() {
-        let raty_elem = document.querySelector('#heavy_raty');
+        $(document).on('turbolinks:load', function() { 
+        let raty_elem = document.querySelector('.heavy_raty<%= recipe.id %>');
         raty_elem.innerHTML = ""
         let option = {  
             starOn: "<%= asset_path('star-on.png') %>",
             starOff: "<%= asset_path('star-off.png') %>",
             starHalf: "<%= asset_path('star-half.png') %>",
             scoreName: 'recipe[light_rate]',
-            score: <%= review.heavy_rate %>,
+             score: <%= review ? review.heavy_rate : 0 %>,
             readOnly: true,
           };
         raty(raty_elem,option);

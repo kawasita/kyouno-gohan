@@ -10,8 +10,9 @@ class Public::RecipeCommentsController < ApplicationController
   end
 
   def destroy
-    @comment = RecipeComment.find(params[:id])
-    @comment.destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    comment = RecipeComment.find(params[:id])
+    comment.destroy
   end
   
   def ensure_normal_user

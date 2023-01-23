@@ -14,8 +14,9 @@ class Admin::HomesController < ApplicationController
   end
   
   def destroy
-    @comment = RecipeComment.find(params[:id])
-    @comment.destroy
+    @comments = RecipeComment.page(params[:page]).per(10)
+    comment = RecipeComment.find(params[:id])
+    comment.destroy
   end
   
 end

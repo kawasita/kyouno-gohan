@@ -25,7 +25,7 @@
       <%= form_with model: @review, url: recipe_reviews_path(@recipe), method: :post do |f| %>
         <% if @review.id != nil %>
           <div>
-            <%= render "public/reviews/rate", f: f, review: @review %>
+            <%= render "public/reviews/rate", f: f, review: @review, recipe: @recipe %>
           </div>
         <% else %>
           <div>

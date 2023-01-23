@@ -35,8 +35,7 @@
               </td>
               <td>
                 <%= simple_format(bookmark.recipe.recipe_description) %>
-                <!--レビューをしているものは表示させる-->
-                <%#= render "public/reviews/rate", review: @bookmarks %>
+                <%= render "public/reviews/rate", review: bookmark.recipe.reviews.find_by(user_id: current_user.id),  recipe: bookmark.recipe  %>
               </td>
               <td><%= bookmark.recipe.recipe_indication.truncate(15) %></td>
             </tr>

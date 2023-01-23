@@ -25,7 +25,7 @@
               </td>
               <td>
                 <%= simple_format(review.recipe.recipe_description) %>
-                <%= render "public/reviews/rate", review: @reviews %>
+                <%= render "public/reviews/rate", review: review, recipe: review.recipe %>
               </td>
               <td><%= review.recipe.recipe_indication.truncate(15) %></td>
             </tr>
