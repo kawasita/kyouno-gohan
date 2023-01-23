@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     get "search" => "searches#search"
     resources :myshops
-    resources :users, only: [:show, :index] do
-        patch 'out'
+    resources :user, only: [:index]
+    resource :users, only: [:show] do
+      patch 'out'
     end
     resources :recipes, only: [:show] do
       resources :recipe_comments, only: [:create, :destroy]
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show,:edit,:update]
     resources :homes, only: [:destroy]
     get 'top' => 'homes#top'
+    get "search_comment" => "homes#search_comment"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

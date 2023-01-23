@@ -4,7 +4,7 @@ class Public::ReviewsController < ApplicationController
 
   
   def index
-    @recipe = Recipe.find(params[:recipe_id])
+    @recipe = Recipe.find_by(params[:recipe_id])
     @recipe.reviews.find_by(user_id: current_user.id)
     if params[:light_rate]
       @reviews = Review.where(user: current_user).light_rate

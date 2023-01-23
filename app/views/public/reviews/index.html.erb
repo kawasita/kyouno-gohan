@@ -11,8 +11,8 @@
         </div>
       <% else %>
         <p>
-         <%= link_to 'あっさり順', reviews_path(light_rate: "true") %>
-         |<%= link_to 'こってり順', reviews_path(heavy_rate: "true") %>
+         <%= link_to 'あっさり順', reviews_path(light_rate: "true"), class: "btn btn-success" %>
+         <%= link_to 'こってり順', reviews_path(heavy_rate: "true"), class: "btn btn-success" %>
         </p>
         
         <% @reviews.each do |review| %>
@@ -23,7 +23,10 @@
                   <%= review.recipe.recipe_title.truncate(15) %>
                 <% end %>
               </td>
-              <td><%= simple_format(review.recipe.recipe_description) %></td>
+              <td>
+                <%= simple_format(review.recipe.recipe_description) %>
+                <%= render "public/reviews/rate", review: @reviews %>
+              </td>
               <td><%= review.recipe.recipe_indication.truncate(15) %></td>
             </tr>
           </tbody>

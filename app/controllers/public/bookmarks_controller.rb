@@ -4,12 +4,9 @@ class Public::BookmarksController < ApplicationController
 
   def index
     if params[:light_rate]
-      # @bookmarks = current_user.reviews.light_rate
-      # @bookmarks = Review.where(user: current_user).light_rate
-      
       @bookmarks = Review.where(recipe_id: Recipe.where(id: Bookmark.where(user: current_user).pluck(:recipe_id))).light_rate
     elsif params[:heavy_rate]
-      @bookmarks = current_user.reviews.heavy_rate
+      @bookmarks = Review.where(recipe_id: Recipe.where(id: Bookmark.where(user: current_user).pluck(:recipe_id))).heavy_rate
     else
       @bookmarks = Bookmark.where(user_id: current_user.id)
     end

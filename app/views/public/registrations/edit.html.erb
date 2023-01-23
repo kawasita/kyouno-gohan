@@ -28,7 +28,7 @@
       </div>
     <% end %>
     <div class="text-right">
-      <%= link_to "退会する", user_out_path(current_user.id), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-danger " %>
+      <%= link_to "退会する", out_users_path, method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-sm btn-danger " %>
     </div>
   </div>
 </div>

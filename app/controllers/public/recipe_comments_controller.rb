@@ -7,7 +7,6 @@ class Public::RecipeCommentsController < ApplicationController
     @comment = current_user.recipe_comments.new(recipe_comment_params)
     @comment.recipe_id = @recipe.id
     @comment.save
-    # redirect_to recipe_path(params[:recipe_id])
   end
 
   def destroy
