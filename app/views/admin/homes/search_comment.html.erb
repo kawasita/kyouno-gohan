@@ -9,19 +9,8 @@
     
       <div class="row">
       <% unless @results.blank? %>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>レシピ</th>
-              <th>コメント</th>
-              <th>コメント日時</th>
-              <th>コメント者</th>
-              <th>削除しますか？</th>
-            </tr>
-          </thead>
-          <div id="comment-delete">
-            <%= render 'admin/homes/comment_index', comments: @results %>
-          </div>
+        <table class="table table-hover" id="comment-delete">
+          <%= render 'admin/homes/comment_index', comments: @results %>
         </table>
       <% else %>
         該当するコメントはありませんでした
