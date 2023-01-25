@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_23_115306) do
+ActiveRecord::Schema.define(version: 2023_01_25_101103) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2023_01_23_115306) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "category_id"
+    t.string "rakuten_category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 2023_01_23_115306) do
   create_table "recipe_comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "recipe_id", null: false
-    t.text "commet", null: false
+    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer "recipe_id", null: false
+    t.integer "rakuten_recipe_id", null: false
     t.string "recipe_title", null: false
     t.string "recipe_indication", null: false
     t.text "recipe_description", null: false
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 2023_01_23_115306) do
     t.float "heavy_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
   end
 
   create_table "reviews", force: :cascade do |t|

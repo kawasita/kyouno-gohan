@@ -10,11 +10,11 @@ require "csv"
 CSV.foreach('db/csv/rakuten.csv') do |row|
   pp Category.find_or_create_by(
     name: row[0],
-    category_id: row[1],
+    rakuten_category_id: row[1],
   )
 end
 
-Admin.create!(
-  email: ENV['ADMIN_EMAIL'],
-  password: ENV['ADMIN_PASSWORD']
-)
+# Admin.create!(
+#   email: ENV['ADMIN_EMAIL'],
+#   password: ENV['ADMIN_PASSWORD']
+# )

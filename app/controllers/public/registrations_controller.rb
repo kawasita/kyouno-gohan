@@ -3,11 +3,11 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  before_action :ensure_normal_user, only: [:update, :destroy]
+  before_action :ensure_normal_user, only: [:edit, :update, :destroy]
 
   def ensure_normal_user
     if current_user.email == 'guest@example.com'
-      redirect_to request.referer, alert: 'ゲストユーザーの更新・削除はできません。'
+      redirect_to users_path, alert: 'ゲストユーザーの更新・削除はできません。'
     end
   end
   

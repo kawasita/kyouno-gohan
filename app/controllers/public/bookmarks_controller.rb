@@ -33,7 +33,7 @@ class Public::BookmarksController < ApplicationController
 
   def ensure_normal_user
     if current_user.email == 'guest@example.com'
-      redirect_to request.referer, alert: 'ゲストユーザーの方はこの機能をご利用できません'
+      redirect_to users_path, alert: 'ゲストユーザーの方はこの機能をご利用できません'
     end
   end
   
