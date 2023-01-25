@@ -25,6 +25,7 @@ module Rakuten
          # 返ってきたレシピデータをデータベースに保存
         response_body['result'].each do |result|
           Recipe.find_or_create_by(rakuten_recipe_id: result['recipeId']) do |recipe|
+            #recipe.category_id = category_id
             recipe.recipe_title = result['recipeTitle']
             recipe.recipe_indication = result['recipeIndication']
             recipe.recipe_description = result['recipeDescription']
