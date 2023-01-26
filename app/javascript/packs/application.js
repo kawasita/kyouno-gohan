@@ -32,3 +32,4 @@ $('.loading').on('click',function(){
   $('.loading-mark').css("display", "block")   
 });
 });
+
