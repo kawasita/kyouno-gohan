@@ -6,11 +6,12 @@
       <div class="form-group">
         <%= f.text_field :keyword, class: 'form-control', placeholder: 'ポテト' %>
       </div>
-
       <div class="row">
         <div class="col-md-6 mx-auto">
           <%= f.submit '検索', class: 'btn btn-outline-secondary btn-block loading' %>
-          <small><i class="fas fa-spinner mr-1"></i>検索時、少し時間がかかってしまいます</small>
+          <div class="loading-mark text-center"  style="display: none;">
+            <%= image_tag "89-88.gif", class: "spinner"%><span class="ml-2">しばしお待ちを！</span>
+          </div>
         </div>
       </div>
     <% end %>

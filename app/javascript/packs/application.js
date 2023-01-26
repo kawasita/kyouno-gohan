@@ -26,3 +26,9 @@ ActiveStorage.start()
 
 window.$ = window.jQuery = require('jquery');
 
+// ローディング画面
+jQuery(document).on('turbolinks:load', function(){
+$('.loading').on('click',function(){
+  $('.loading-mark').css("display", "block")   
+});
+});

@@ -6,7 +6,7 @@ class Public::SearchesController < ApplicationController
       categories = Category.where('name LIKE ?', "%#{params[:keyword]}%").pluck(:rakuten_category_id)
 
       # ランダムに5件のカテゴリーを取得
-      categories.sample(3).each do |category|
+      categories.sample(4).each do |category|
        Rakuten.get_rakuten_recipes(category)
       end
       @results = Recipe.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
