@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :bookmarks, dependent: :destroy
-  has_many :recipes, through: :bookmarks # あくまでもレシピの検索をするので、ブックマークを通ってレシピを探してあげる
+  has_many :recipes, through: :bookmarks
   has_many :recipe_comments, dependent: :destroy
   has_many :myshops, dependent: :destroy
   has_many :bookmarks_recipes, through: :bookmarks, source: :recipe
@@ -16,24 +16,11 @@ class User < ApplicationRecord
   validates :nickname, exclusion: { in: %w(管理人 管理者 スタッフ 運営), message: "「%{value}」は使えません" }
   validates :email, presence: true
   validates :encrypted_password, presence: true
-  
-  def own?(object)
-    id == object.user_id
-  end
 
   def bookmark(recipe)
     bookmarks_recipes << recipe
   end
 
-  def unbookmark(recipe)
-    bookmarks_recipes.delete(recipe)
-  end
-
-  def bookmark?(recipe)
-    bookmarks_recipes.include?(recipe)
-    # Bookmark.where(user_id: id, recipe_id: recipe.id).exists?と同じ
-  end
-  
   def self.guest
     find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
