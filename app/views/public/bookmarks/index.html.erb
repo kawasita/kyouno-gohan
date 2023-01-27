@@ -22,7 +22,7 @@
           <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary" %>
         </p>
         
-        <% @bookmarks.each do |bookmark| %>
+        <% @bookmarks.reverse.each do |bookmark| %>
           <tbody class="col-md-10 mx-auto">
             <tr>
               <td>

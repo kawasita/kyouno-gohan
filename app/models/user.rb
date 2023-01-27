@@ -13,7 +13,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true
   validates :name, length: { maximum: 9 }
-  validates :nickname, exclusion: { in: %w(管理人 管理者 スタッフ 運営) }
+  validates :nickname, exclusion: { in: %w(管理人 管理者 スタッフ 運営), message: "「%{value}」は使えません" }
   validates :email, presence: true
   validates :encrypted_password, presence: true
   

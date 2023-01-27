@@ -8,7 +8,7 @@
   </tr>
 </thead>
 <tbody>
-  <% comments.each do |recipe_comment| %>
+  <% comments.reverse.each do |recipe_comment| %>
     <tr>
       <td>
         <%= link_to recipe_path(recipe_comment.recipe_id) do %>

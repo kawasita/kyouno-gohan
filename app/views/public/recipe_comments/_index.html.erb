@@ -1,6 +1,6 @@
 <table class="table table-bordered">
   <tbody class="col-md-10 mx-auto">
-    <% recipe.recipe_comments.each do |recipe_comment| %>
+    <% recipe.recipe_comments.reverse.each do |recipe_comment| %>
     <tr>
       <td class="col-md-8 mx-auto"><%= simple_format(recipe_comment.comment) %>
       <td class="text-right">
