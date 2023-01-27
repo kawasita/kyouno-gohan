@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
     
   belongs_to :user
-  belongs_to :recipe
+  belongs_to :recipe, foreign_key: :recipe_id
   has_many :bookmarks, through: :user
   
   validates :light_rate, :heavy_rate, presence: true
