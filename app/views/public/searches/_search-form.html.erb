@@ -2,16 +2,13 @@
   <div class="col-md-6 mx-auto">
     <%= form_with url: search_path, method: :get do |f| %>
       <%= f.label :keyword, '今日何にしよう？' %>
-
       <div class="form-group">
         <%= f.text_field :keyword, class: 'form-control', placeholder: 'ポテト' %>
       </div>
       <div class="row">
         <div class="col-md-6 mx-auto">
           <%= f.submit '検索', class: 'btn btn-outline-secondary btn-block loading' %>
-          
           <small><i class="fas fa-spinner mr-1"></i>検索時、少し時間がかかってしまいます</small>
-          
           <div class="loading-mark text-center"  style="display: none;">
             <%= render 'layouts/loading' %>
           </div>

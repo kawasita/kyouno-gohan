@@ -1,27 +1,28 @@
 <div class="container">
   <div class="row">
-      <div class="col-lg-12 center-block">
-        <h2 class="text-center mt-5 mb-3 border-bottom"><i class="fas fa-question"></i>このサイトの使い方<i class="fas fa-question"></i></h2>
-        <h5 class="text-center", style="line-height: 30px">
-          普段のごはん選び、何となく同じものになっていませんか？</br>
-          ここは、そんなあなたのごはんを決めちゃうサイト！</br>
-          このサイトで料理を検索すると、</br>
-          どんどん<span class="text-danger">閲覧できるレシピが増えていくという世にも不思議な育てるサイト</span></br>
-          気に入った・気になるレシピを登録したり、コメントすることもできちゃいます</br>
-          また、スーパーなどの店舗登録をして今日のお買い得品を一括管理しちゃいましょう！</br></br>
-          <strong>Let's 今日のごはん！</strong></br></br>
-        </h5>
-        <div class="text-center d-grid gap-2 col-8 mx-auto">
-          <% if user_signed_in? %>
-            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-sm btn-block text-white py-2 mt-2 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-sm btn-block text-white py-2 mt-2 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;", method: :post %>
-          <% else %>
-            <%= link_to '新規登録', new_user_registration_path,class: "btn btn-sm btn-block text-white py-2 mt-2", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
-            <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-sm btn-block text-white py-2 mt-2", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;", method: :post %>
-          <% end %>
-        </div>
-
+    <div class="col-lg-12 center-block">
+      <h2 class="text-center mt-5 mb-3 border-bottom"><i class="fas fa-question"></i>このサイトの使い方<i class="fas fa-question"></i></h2>
+      
+      <h5 class="text-center", style="line-height: 30px">
+        普段のごはん選び、何となく同じものになっていませんか？</br>
+        ここは、そんなあなたのごはんを決めちゃうサイト！</br>
+        このサイトで料理を検索すると、</br>
+        どんどん<span class="text-danger">閲覧できるレシピが増えていくという世にも不思議な育てるサイト</span></br>
+        気に入った・気になるレシピを登録したり、コメントすることもできちゃいます</br>
+        また、スーパーなどの店舗登録をして今日のお買い得品を一括管理しちゃいましょう！</br></br>
+        <strong>Let's 今日のごはん！</strong></br></br>
+      </h5>
+      
+      <div class="text-center d-grid gap-2 col-8 mx-auto">
+        <% if user_signed_in? %>
+          <%= link_to '新規登録', new_user_registration_path,class: "btn btn-sm btn-block text-white p-2 mt-2 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;" %>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-sm btn-block text-white p-2 mt-3 disabled", style: "border: dashed 1px #FFF; 4px; box-shadow: 0px 0px 0px 5px #6c757d; background: #6c757d;", method: :post %>
+        <% else %>
+          <%= link_to '新規登録', new_user_registration_path,class: "btn-grey btn-sm btn-block text-white p-2 mt-2" %>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn-grey btn-sm btn-block text-white p-2 mt-3", method: :post %>
+        <% end %>
       </div>
+
     </div>
   </div>
 </div>

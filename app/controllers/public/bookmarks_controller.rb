@@ -14,7 +14,6 @@ class Public::BookmarksController < ApplicationController
   
   def search_bookmark
     unless params[:keyword].blank?
-      # あくまでもレシピの検索をするので、ブックマークを通ってレシピを探してあげる(user.rb)
       @results = current_user.recipes.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
     else
       @results = []

@@ -7,13 +7,10 @@
       <% if @comments.blank? %>
         新着コメントはありません
       <% else %> 
-      <%= render "admin/homes/search-form" %>
-      <table class="table table-hover" id="comment-delete">
-        
+        <%= render "admin/homes/search-form" %>
         <div>
           <%= render 'admin/homes/comment_index', comments: @comments %>
         </div>
-      </table>
       <% end %>
     </div>
   </div>

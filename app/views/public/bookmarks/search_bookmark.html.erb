@@ -3,8 +3,8 @@
     <div class="col-md-12 mb-3 mt-3">
       <h4>気になる・お気に入りレシピ検索結果</h4>
     </div>
+    
     <table class="table table-bordered">
-
       <div class="col-md-12 mb-3 mt-3">
         <%= render "public/bookmarks/search_bookmark-form" %>
       </div>
@@ -14,7 +14,7 @@
        <%= link_to 'こってり順', bookmarks_path(heavy_rate: "true"), class: "btn btn-success" %>
        <%= link_to 'ごはん検索をする', search_path, class: "btn btn-secondary" %>
       </p>
-        
+      
       <% @results.each do |result| %>
         <tbody class="col-md-10 mx-auto">
           <tr>
@@ -32,5 +32,6 @@
         </tbody>
       <% end %>
     </table>
+    
   </div>
 </div>

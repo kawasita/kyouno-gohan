@@ -8,17 +8,19 @@
       <%= render "admin/homes/search-form" %>
     
       <div class="row">
-      <% unless @results.blank? %>
-        <table class="table table-hover" id="comment-delete">
-          <%= render 'admin/homes/comment_index', comments: @results %>
-        </table>
-      <% else %>
-        該当するコメントはありませんでした
-      <% end %>
+        <% unless @results.blank? %>
+          <table class="table table-hover" id="comment-delete">
+            <%= render 'admin/homes/comment_index', comments: @results %>
+          </table>
+        <% else %>
+          該当するコメントはありませんでした
+        <% end %>
       </div>
+      
       <div class="justify-content-center text-center">
         <%= paginate @results %>
       </div>
+      
    </div>
   </div>
 </div>

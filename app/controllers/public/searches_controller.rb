@@ -10,6 +10,7 @@ class Public::SearchesController < ApplicationController
        Rakuten.get_rakuten_recipes(category)
       end
       @results = Recipe.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
+      
       # 配列に対するページネーション
       results_array = Recipe.where('recipe_title LIKE ?', "%#{params[:keyword]}%")
       @results = Kaminari.paginate_array(results_array).page(params[:page]).per(9)
