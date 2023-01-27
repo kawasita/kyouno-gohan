@@ -4,7 +4,6 @@ class CreateReviews < ActiveRecord::Migration[6.1]
       
       t.integer :user_id, null: false
       t.integer :recipe_id, null: false
-      t.integer :rakuten_recipe_id
       t.float :light_rate, null: false #あっさり味度合
       t.float :heavy_rate, null: false #こってり味度合
       t.timestamps
