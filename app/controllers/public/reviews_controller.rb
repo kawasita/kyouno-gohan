@@ -19,7 +19,7 @@ class Public::ReviewsController < ApplicationController
     if @review.save
       redirect_to request.referer
     else
-      redirect_to recipe_path, alert: 'あっさりこってり登録に失敗しました'
+      redirect_to recipe_path(@recipe), alert: 'あっさりこってり登録に失敗しました'
     end
   end
 
