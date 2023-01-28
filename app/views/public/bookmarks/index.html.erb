@@ -4,17 +4,18 @@
       <h3 class="col-12 mt-4 border-bottom">気になる・お気に入りレシピ一覧</h3>
     </div>
     
-    <table class="table table-bordered table-hover">
+    <% if @bookmarks.blank? %>
+      <div class="col-md-12 mb-3 mt-3">
+        <%= render "public/searches/search-form" %>
+      </div>
+    <% else %>
+      <div class="col-md-12 mb-3 mt-3">
+        <%= render "public/bookmarks/search_bookmark-form" %>
+      </div>
       
-      <% if @bookmarks.blank? %>
-        <div class="col-md-12 mb-3 mt-3">
-          <%= render "public/searches/search-form" %>
-        </div>
-      <% else %>
-        <div class="col-md-12 mb-3 mt-3">
-          <%= render "public/bookmarks/search_bookmark-form" %>
-        </div>
-        
+    
+    <table class="table table-bordered table-hover">
+  
         <p>
           <%= link_to 'あっさり順', bookmarks_path(light_rate: "true"), class: "btn btn-success" %>
           <%= link_to 'こってり順', bookmarks_path(heavy_rate: "true"), class: "btn btn-success" %>

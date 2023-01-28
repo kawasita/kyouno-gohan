@@ -4,10 +4,11 @@
       <h4>気になる・お気に入りレシピ検索結果</h4>
     </div>
     
+    <div class="col-md-12 mb-3 mt-3">
+      <%= render "public/bookmarks/search_bookmark-form" %>
+    </div>
+    
     <table class="table table-bordered">
-      <div class="col-md-12 mb-3 mt-3">
-        <%= render "public/bookmarks/search_bookmark-form" %>
-      </div>
       
       <p>
        <%= link_to 'あっさり順', bookmarks_path(light_rate: "true"), class: "btn btn-success" %>
