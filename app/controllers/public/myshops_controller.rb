@@ -8,11 +8,12 @@ class Public::MyshopsController < ApplicationController
   end
 
   def create
-    myshop = Myshop.new(myshop_params)
-    myshop.user_id = current_user.id
-    if myshop.save
+    @myshop = Myshop.new(myshop_params)
+    @myshop.user_id = current_user.id
+    if @myshop.save
       redirect_to myshops_path
     else
+      @myshops = Myshop.where(user:current_user)
       render 'index', alert: '登録に失敗しました。お手数ですが再度お願いします。'
     end
   end
