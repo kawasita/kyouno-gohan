@@ -1,6 +1,5 @@
 class Public::RecipesController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_admin!
 
   def show
     @recipe = Recipe.find(params[:id])

@@ -1,6 +1,5 @@
 class Public::RecipeCommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_admin!
   before_action :ensure_normal_user, only: [:create, :destroy]
 
   def create
