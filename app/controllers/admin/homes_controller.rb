@@ -1,7 +1,7 @@
 class Admin::HomesController < ApplicationController
 
   def top
-    @comments = RecipeComment.page(params[:page]).per(10)
+    @comments = RecipeComment.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def search_comment
