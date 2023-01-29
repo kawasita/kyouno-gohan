@@ -23,20 +23,19 @@
         <small>＊あっさり度とこってり度を入力して、<br />あなただけのあっさりこってりページを作ろう！</small>
       </div>
       
-      <%= form_with model: @review, url: recipe_reviews_path(@recipe), method: :post do |f| %>
-        <% if @review.id != nil %>
-          <div>
-            <%= render "public/reviews/rate", f: f, review: @review, recipe: @recipe %>
-          </div>
-        <% else %>
+      
+      <% if @recipe.reviews.exists?(user_id: current_user.id) %>
+        <div>
+          <%= render "public/reviews/rate", review: @review, recipe: @recipe %>
+        </div>
+      <% else %>
+        <%= form_with model: @review, url: recipe_reviews_path(@recipe), method: :post do |f| %>
           <div>
             <%= render "public/reviews/rate_form", f: f %>
           </div>
-        <% end %>
-        <% if @review.id == nil %>
-          <div class="form-group">
-            <%= f.submit "登録", class: 'btn btn-success' %>
-          </div>
+           <div class="form-group">
+          <%= f.submit "登録", class: 'btn btn-success' %>
+        </div>
         <% end %>
       <% end %>
     </div>
