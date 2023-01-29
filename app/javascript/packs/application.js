@@ -21,13 +21,14 @@ window.raty = function(elem,opt) {
 }
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start() //raty読み込みのために無効化
 ActiveStorage.start()
 
 window.$ = window.jQuery = require('jquery');
 
 // ローディング画面
-jQuery(document).on('turbolinks:load', function(){
+// jQuery(document).on('turbolinks:load', function(){
+$(function(){
 $('.loading').on('click',function(){
   $('.loading-mark').css("display", "block")   
 });

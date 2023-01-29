@@ -6,7 +6,8 @@
   
 
  <script>
-      $(document).on('turbolinks:load', function() {
+    //   $(document).on('turbolinks:load', function() {
+    $(function(){
       let raty_elem = document.querySelector('#light_rate');
       raty_elem.innerHTML = ""
       let option = {  
@@ -16,6 +17,7 @@
           scoreName: 'recipe_comment[light_rate]',
         };
       raty(raty_elem,option);
+    // }
      });
     </script>
     
@@ -27,7 +29,7 @@
           
 
  <script>
-      $(document).on('turbolinks:load', function() {
+      $(function(){
       let raty_elem = document.querySelector('#heavy_rate');
       raty_elem.innerHTML = ""
       let option = {  
