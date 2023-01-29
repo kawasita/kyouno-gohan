@@ -6,9 +6,9 @@ class Public::ReviewsController < ApplicationController
   def index
     @recipe = Recipe.find_by(params[:recipe_id])
     if params[:light_rate]
-      @reviews = Review.where(user: current_user).light_rate
+      @reviews = Review.where(user_id: current_user.id).light_rate
     else params[:heavy_rate]
-      @reviews = Review.where(user: current_user).heavy_rate
+      @reviews = Review.where(user_id: current_user.id).heavy_rate
     end
   end
   
