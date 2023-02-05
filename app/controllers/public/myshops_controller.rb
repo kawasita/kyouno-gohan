@@ -20,24 +20,37 @@ class Public::MyshopsController < ApplicationController
 
   def show
     @myshop = Myshop.find(params[:id])
+    unless @myshop.user == current_user
+      redirect_to myshops_path
+    end
   end
 
 
   def edit
     @myshop = Myshop.find(params[:id])
+    unless @myshop.user == current_user
+      redirect_to myshops_path
+    end
   end
 
   def update
     @myshop = Myshop.find(params[:id])
-    if @myshop.update(myshop_params)
-      redirect_to myshops_path, notice: "情報更新完了です！"
+    if @myshop.user != current_user
+      redirect_to  myshops_path
     else
-      render "edit"
+      if @myshop.update(myshop_params)
+        redirect_to myshops_path, notice: "情報更新完了です！"
+      else
+        render "edit"
+      end
     end
   end
 
   def destroy
     @myshop = Myshop.find(params[:id])
+    if @myshop.user != current_user
+      redirect_to  myshops_path
+    end
     @myshop.destroy
     redirect_to myshops_path
   end
