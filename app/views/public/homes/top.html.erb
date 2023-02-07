@@ -10,20 +10,22 @@
     <% @random_recipes.each do |random_recipe| %>
       <div class="col-md-3">
         <div class="card">
-          <%= image_tag random_recipe.food_image_url, class: 'card-img-top recipe-img' %>
-          <div class="card-body">
-            <h5 class="card-title">
-            <%= link_to random_recipe.recipe_title.truncate(10), recipe_path(random_recipe) %>
-            </h5>
-            <div class="card-text">
-              <div>
-                <%= random_recipe.recipe_description.truncate(13) %>
-              </div>
-              <div class="text-right">
-                <small><%= random_recipe.recipe_cost %></small>
+          <%= link_to recipe_path(random_recipe) do %>
+            <%= image_tag random_recipe.food_image_url, class: 'card-img-top recipe-img' %>
+            <div class="card-body">
+              <h5 class="card-title">
+              <%= link_to random_recipe.recipe_title.truncate(10), recipe_path(random_recipe) %>
+              </h5>
+              <div class="card-text">
+                <div>
+                  <%= random_recipe.recipe_description.truncate(13) %>
+                </div>
+                <div class="text-right">
+                  <small><%= random_recipe.recipe_cost %></small>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     <% end %>
@@ -37,19 +39,21 @@
     <% @random_comment_recipes.each do |comment_recipe| %>
       <div class="col-md-3">
         <div class="card">
-          <%= image_tag comment_recipe.food_image_url, class: 'card-img-top recipe-img' %>
-          <div class="card-body">
-            <h5 class="card-title">
-              <%= link_to comment_recipe.recipe_title.truncate(10), recipe_path(comment_recipe) %>
-            </h5>
-            <div class="card-text">
-              <%= comment_recipe.recipe_comments.last.comment %>
+          <%= link_to recipe_path(comment_recipe) do %>
+            <%= image_tag comment_recipe.food_image_url, class: 'card-img-top recipe-img' %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= link_to comment_recipe.recipe_title.truncate(10), recipe_path(comment_recipe) %>
+              </h5>
+              <div class="card-text">
+                <%= comment_recipe.recipe_comments.last.comment %>
+              </div>
+              <div class="text-right">
+                <small><%= comment_recipe.recipe_comments.last.user.nickname %></small><br>
+                <small><%= comment_recipe.recipe_comments.last.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></small>
+              </div>
             </div>
-            <div class="text-right">
-              <small><%= comment_recipe.recipe_comments.last.user.nickname %></small><br>
-              <small><%= comment_recipe.recipe_comments.last.created_at.in_time_zone('Tokyo').strftime("%Y年%m月%d日 %H時%M分") %></small>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     <% end %>
