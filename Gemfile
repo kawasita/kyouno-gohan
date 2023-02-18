@@ -59,6 +59,7 @@ gem 'rakuten_web_service'
 gem 'rename'
 gem 'kaminari','~> 1.2.1'
 gem 'rails-i18n'
+gem 'whenever', require: false
 #本番環境でMySQLを利用
 gem 'dotenv-rails'
 group :production do
